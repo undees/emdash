@@ -67,7 +67,7 @@ src/
 
 public/
   index.html               # Shell HTML, CSS custom properties, PWA/OG meta tags
-  app.js                   # Bundled output (committed, served directly)
+  app.js                   # Bundled output (gitignored; run `bun run build` to generate)
   manifest.json            # PWA web app manifest
   apple-touch-icon.png     # iOS home screen icon (180×180)
   og-image.png             # Open Graph / iMessage preview image (1200×1200)
@@ -94,7 +94,7 @@ Familect terms (e.g. "Turg", "Silkenhalf") are resolved to their canonical produ
 
 ```bash
 bun test          # unit tests (utils, aisle-defaults, familect, share-button)
-uv run pytest     # E2E tests in tests/ (requires a running dev server on :3000)
+uv run pytest     # E2E tests in tests/ (starts its own dev server on :3000 via conftest.py)
 ```
 
 ## Deployment
