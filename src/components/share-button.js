@@ -17,7 +17,7 @@ import { listHasItems } from '../utils.js';
  *
  * @example
  * formatShareText({ floatingItems: [{ id: '1', name: 'Milk' }], aisles: [] })
- * // → "🛒 WhoreDash List\n\n• Milk"
+ * // → "🛒 Em Dash List\n\n• Milk"
  */
 export function formatShareText(data, store = '') {
   const sections = [];
@@ -36,8 +36,8 @@ export function formatShareText(data, store = '') {
   }
 
   const header = store
-    ? `🛒 WhoreDash List — ${store}`
-    : '🛒 WhoreDash List';
+    ? `🛒 Em Dash List — ${store}`
+    : '🛒 Em Dash List';
   return `${header}\n\n${sections.join('\n\n')}`;
 }
 
@@ -64,7 +64,7 @@ export class ShareButton extends LitElement {
     button {
       width: 100%;
       padding: 0.85rem;
-      background: var(--pink-500);
+      background: var(--green-500);
       color: var(--white);
       border: none;
       border-radius: var(--radius);
@@ -77,7 +77,7 @@ export class ShareButton extends LitElement {
     }
 
     button:hover:not(:disabled) {
-      background: var(--pink-600);
+      background: var(--green-600);
     }
 
     button:disabled {
@@ -105,7 +105,7 @@ export class ShareButton extends LitElement {
 
     try {
       await navigator.share({
-        title: 'WhoreDash List',
+        title: 'Em Dash List',
         text: this._formatList(),
       });
     } catch (err) {
@@ -119,7 +119,7 @@ export class ShareButton extends LitElement {
     const empty = this._isEmpty();
     return html`
       <button ?disabled=${empty} @click=${this._share}>
-        Send the Whore Shopping
+        Send Me Shopping
       </button>
     `;
   }

@@ -8,7 +8,7 @@ def _add_item(page: Page, name: str):
 
 
 def _stored(page: Page):
-    return page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    return page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
 
 
 def test_familect_item_shows_sparkle_name(page: Page, base_url: str):

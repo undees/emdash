@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "whoredash",
+      "name": "emdash",
       "dependencies": {
         "lit": "^3.3.2",
       },

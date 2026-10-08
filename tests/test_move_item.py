@@ -13,7 +13,7 @@ def _add_aisle(page: Page, name: str):
 
 
 def _seed(page: Page, data: dict):
-    page.evaluate(f"localStorage.setItem('whoredash-list', JSON.stringify({json.dumps(data)}))")
+    page.evaluate(f"localStorage.setItem('emdash-list', JSON.stringify({json.dumps(data)}))")
     page.reload()
 
 
@@ -93,7 +93,7 @@ def test_move_floating_item_into_aisle(page: Page, base_url: str):
     page.locator('grocery-list').locator('.move-btn').click()
     page.locator('grocery-list').locator('.aisle-option', has_text='Dairy').click()
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored['floatingItems'] == []
     assert stored['aisles'][0]['items'][0]['name'] == 'Milk'
 
@@ -111,7 +111,7 @@ def test_move_aisle_item_to_different_aisle(page: Page, base_url: str):
     page.locator('grocery-list').locator('.move-btn').click()
     page.locator('grocery-list').locator('.aisle-option', has_text='Produce').click()
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored['aisles'][0]['items'] == []
     assert stored['aisles'][1]['items'][0]['name'] == 'Milk'
 
@@ -126,6 +126,6 @@ def test_move_aisle_item_back_to_floating(page: Page, base_url: str):
     page.locator('grocery-list').locator('.move-btn').click()
     page.locator('grocery-list').locator('.aisle-option--none').click()
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored['floatingItems'][0]['name'] == 'Butter'
     assert stored['aisles'][0]['items'] == []

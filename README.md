@@ -1,6 +1,6 @@
-# WhoreDash
+# Em Dash
 
-A grocery list app for wives who send their wives shopping.
+Errands & munchies, in a dash. A shopping list app for sending someone to the store.
 
 ## What it does
 
@@ -36,7 +36,7 @@ bun run dev
 
 ### Architecture
 
-WhoreDash is a single-page app with no framework router, no server, and no build-time templating. Everything is plain ES modules bundled by Bun into one `public/app.js` file.
+Em Dash is a single-page app with no framework router, no server, and no build-time templating. Everything is plain ES modules bundled by Bun into one `public/app.js` file.
 
 **Runtime stack**
 
@@ -59,7 +59,7 @@ src/
   utils.js                 # Pure utility functions (data creation, migration, etc.)
 
   components/
-    whore-dash.js          # Root shell: owns all state, handles all events
+    em-dash.js             # Root shell: owns all state, handles all events
     grocery-list.js        # Renders items + aisles; inline editing; move picker
     add-item.js            # Text input + "Add" / "+ Aisle" buttons
     the-nines.js           # Quick-add 3×3 grid from add history
@@ -73,16 +73,16 @@ public/
   og-image.png             # Open Graph / iMessage preview image (1200×1200)
 
 scripts/
-  generate-icons.js        # Regenerates all PNGs from SVG source via sharp
+  generate-icons.js        # Regenerates all PNGs (em dash in a squircle) from SVG via sharp
 
 tests/                     # Playwright E2E tests (uv run pytest)
 ```
 
 **Data flow**
 
-`<whore-dash>` is the single source of truth. It loads the list from `localStorage` on startup (via `migrateList`) and passes it down to child components as properties. Children never write to storage directly — they fire custom events (`add-item`, `remove-item`, `rename-item`, `move-item`, `add-aisle`, `rename-aisle`, `delete-aisle`) which `<whore-dash>` handles, mutates its reactive `_list` state, and persists with `_save()`.
+`<em-dash>` is the single source of truth. It loads the list from `localStorage` on startup (via `migrateList`) and passes it down to child components as properties. Children never write to storage directly — they fire custom events (`add-item`, `remove-item`, `rename-item`, `move-item`, `add-aisle`, `rename-aisle`, `delete-aisle`) which `<em-dash>` handles, mutates its reactive `_list` state, and persists with `_save()`.
 
-Add history (`whoredash-history` in `localStorage`) follows the same pattern through `_history` reactive state, updated by `_recordHistory()` and `_removeHistoryItem()`.
+Add history (`emdash-history` in `localStorage`) follows the same pattern through `_history` reactive state, updated by `_recordHistory()` and `_removeHistoryItem()`.
 
 **Auto-assignment**
 
@@ -96,6 +96,10 @@ Familect terms (e.g. "Turg", "Silkenhalf") are resolved to their canonical produ
 bun test          # unit tests (utils, aisle-defaults, familect, share-button)
 uv run pytest     # E2E tests in tests/ (starts its own dev server on :3000 via conftest.py)
 ```
+
+### Upstream
+
+Em Dash is a fork of a sibling app that shares the same code. The `upstream` remote points at it, so shared fixes can be brought over with `git fetch upstream && git cherry-pick <sha>`. Expect conflicts on branding lines: names, wording, colours and icons.
 
 ## Deployment
 

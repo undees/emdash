@@ -8,7 +8,7 @@ def _add_item(page: Page, name: str):
 
 
 def _seed_history(page: Page, history: dict):
-    page.evaluate(f"localStorage.setItem('whoredash-history', JSON.stringify({json.dumps(history)}))")
+    page.evaluate(f"localStorage.setItem('emdash-history', JSON.stringify({json.dumps(history)}))")
     page.reload()
 
 
@@ -133,7 +133,7 @@ def test_nines_remove_persists_to_localstorage(page: Page, base_url: str):
     page.locator('the-nines').locator('.trigger').click()
     page.locator('the-nines').locator('.cell-remove').first.click()
 
-    history = json.loads(page.evaluate("localStorage.getItem('whoredash-history')"))
+    history = json.loads(page.evaluate("localStorage.getItem('emdash-history')"))
     assert 'wormhole' not in history
     assert 'flux capacitor' in history
 

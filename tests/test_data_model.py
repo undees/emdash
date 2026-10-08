@@ -4,7 +4,7 @@ import json
 
 def test_migrates_old_flat_array(page: Page, base_url: str):
     page.goto(base_url)
-    page.evaluate("localStorage.setItem('whoredash-list', JSON.stringify(['Milk', 'Bread']))")
+    page.evaluate("localStorage.setItem('emdash-list', JSON.stringify(['Milk', 'Bread']))")
     page.reload()
 
     items = page.locator("grocery-list").locator(".item-name").all()
@@ -22,7 +22,7 @@ def test_persists_new_schema(page: Page, base_url: str):
     input_el.fill("wormhole")
     input_el.press("Enter")
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert "floatingItems" in stored
     assert "aisles" in stored
     assert stored["floatingItems"][0]["name"] == "wormhole"
@@ -38,20 +38,20 @@ def test_forget_everything_clears_list(page: Page, base_url: str):
     input_el.fill("Milk")
     input_el.press("Enter")
 
-    page.locator("whore-dash").locator(".forget-btn").click()
+    page.locator("em-dash").locator(".forget-btn").click()
 
-    empty = page.locator("whore-dash").locator(".empty")
+    empty = page.locator("em-dash").locator(".empty")
     expect(empty).to_be_visible()
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored["floatingItems"] == []
     assert stored["aisles"] == []
 
 
 def test_garbage_data_starts_fresh(page: Page, base_url: str):
     page.goto(base_url)
-    page.evaluate("localStorage.setItem('whoredash-list', 'this is not json')")
+    page.evaluate("localStorage.setItem('emdash-list', 'this is not json')")
     page.reload()
 
-    empty = page.locator("whore-dash").locator(".empty")
+    empty = page.locator("em-dash").locator(".empty")
     expect(empty).to_be_visible()

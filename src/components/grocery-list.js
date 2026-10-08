@@ -19,7 +19,7 @@ const upDownArrow = svg`<svg width="1em" height="1em" viewBox="0 0 24 24" fill="
  * aisles, aisle deletion (items float back to the top), and a per-item aisle
  * picker for moving items between aisles or back to floating.
  *
- * Familect terms are rendered with a sparkle prefix/suffix, a pink background,
+ * Familect terms are rendered with a sparkle prefix/suffix, a green background,
  * and a one-shot shimmer animation, plus a subtitle showing the canonical name.
  *
  * @element grocery-list
@@ -58,7 +58,7 @@ export class GroceryList extends LitElement {
       justify-content: space-between;
       padding: 0.65rem 0.75rem;
       background: var(--white);
-      border: 1px solid var(--pink-200);
+      border: 1px solid var(--green-200);
       border-radius: var(--radius);
       margin-bottom: 0.5rem;
       box-shadow: var(--shadow);
@@ -82,14 +82,14 @@ export class GroceryList extends LitElement {
     }
 
     .item-name:hover {
-      color: var(--pink-600);
+      color: var(--green-600);
     }
 
     .edit-input {
       flex: 1;
       min-width: 0;
       padding: 0.1rem 0.3rem;
-      border: 2px solid var(--pink-400);
+      border: 2px solid var(--green-400);
       border-radius: calc(var(--radius) / 2);
       font: inherit;
       font-size: 1rem;
@@ -113,7 +113,7 @@ export class GroceryList extends LitElement {
     }
 
     .cancel-edit-btn:hover {
-      color: var(--pink-600);
+      color: var(--green-600);
     }
 
     .remove-btn {
@@ -123,8 +123,8 @@ export class GroceryList extends LitElement {
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--pink-100);
-      color: var(--pink-600);
+      background: var(--green-100);
+      color: var(--green-600);
       border: none;
       border-radius: 50%;
       font-size: 1.1rem;
@@ -135,7 +135,7 @@ export class GroceryList extends LitElement {
     }
 
     .remove-btn:hover {
-      background: var(--pink-400);
+      background: var(--green-400);
       color: var(--white);
     }
 
@@ -149,7 +149,7 @@ export class GroceryList extends LitElement {
     .aisle-header::before {
       content: '❧';
       font-size: 1rem;
-      color: var(--pink-400);
+      color: var(--green-400);
       flex: none;
     }
 
@@ -164,7 +164,7 @@ export class GroceryList extends LitElement {
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--pink-600);
+      color: var(--green-600);
       text-align: left;
       cursor: pointer;
       overflow: hidden;
@@ -174,14 +174,14 @@ export class GroceryList extends LitElement {
     }
 
     .aisle-name-btn:hover {
-      color: var(--pink-800);
+      color: var(--green-800);
     }
 
     .aisle-edit-input {
       flex: 1;
       min-width: 0;
       padding: 0.1rem 0.3rem;
-      border: 2px solid var(--pink-400);
+      border: 2px solid var(--green-400);
       border-radius: calc(var(--radius) / 2);
       font: inherit;
       font-size: 0.85rem;
@@ -205,7 +205,7 @@ export class GroceryList extends LitElement {
     }
 
     .aisle-action-btn:hover {
-      color: var(--pink-600);
+      color: var(--green-600);
     }
 
     .aisle-section > ul {
@@ -231,7 +231,7 @@ export class GroceryList extends LitElement {
 
     .move-btn:hover,
     .move-btn[aria-expanded="true"] {
-      color: var(--pink-600);
+      color: var(--green-600);
     }
 
     .aisle-picker {
@@ -240,15 +240,15 @@ export class GroceryList extends LitElement {
       flex-wrap: wrap;
       gap: 0.4rem;
       padding: 0.5rem 0 0.1rem;
-      border-top: 1px solid var(--pink-100);
+      border-top: 1px solid var(--green-100);
       margin-top: 0.4rem;
     }
 
     .aisle-option {
       background: none;
-      border: 1px solid var(--pink-200);
+      border: 1px solid var(--green-200);
       border-radius: 999px;
-      color: var(--pink-600);
+      color: var(--green-600);
       font: inherit;
       font-size: 0.8rem;
       cursor: pointer;
@@ -257,8 +257,8 @@ export class GroceryList extends LitElement {
     }
 
     .aisle-option:hover {
-      background: var(--pink-100);
-      border-color: var(--pink-400);
+      background: var(--green-100);
+      border-color: var(--green-400);
     }
 
     .aisle-option--none {
@@ -278,15 +278,15 @@ export class GroceryList extends LitElement {
     .item--familect {
       background: linear-gradient(
         90deg,
-        var(--pink-100) 0%,
-        var(--pink-50)  40%,
+        var(--green-100) 0%,
+        var(--green-50)  40%,
         var(--white)    50%,
-        var(--pink-50)  60%,
-        var(--pink-100) 100%
+        var(--green-50)  60%,
+        var(--green-100) 100%
       );
       background-size: 200% auto;
       animation: shimmer 2s ease-out;
-      border-color: var(--pink-300);
+      border-color: var(--green-300);
     }
 
     .item-subtitle {

@@ -1,5 +1,5 @@
 /**
- * @module whore-dash
+ * @module em-dash
  * Root application shell. Owns all list and history state, handles every
  * mutating event from child components, and persists data to localStorage.
  */
@@ -35,22 +35,22 @@ import './grocery-list.js';
 import './share-button.js';
 import './the-nines.js';
 
-const STORAGE_KEY = 'whoredash-list';
-const HISTORY_KEY = 'whoredash-history';
-const STORE_KEY = 'whoredash-store';
+const STORAGE_KEY = 'emdash-list';
+const HISTORY_KEY = 'emdash-history';
+const STORE_KEY = 'emdash-store';
 const BURN_IT_ALL_DOWN = 'BURN IT ALL DOWN';
 
 /**
- * `<whore-dash>` — root application shell.
+ * `<em-dash>` — root application shell.
  *
  * Manages the canonical `_list` and `_history` state, wires up all child
  * component events, and persists every mutation to localStorage. Also handles
  * the "BURN IT ALL DOWN" Easter egg (type the phrase into the aisle name field
  * to wipe history).
  *
- * @element whore-dash
+ * @element em-dash
  */
-export class WhoreDash extends LitElement {
+export class EmDash extends LitElement {
   static properties = {
     _list: { type: Object, state: true },
     _history: { type: Object, state: true },
@@ -74,7 +74,7 @@ export class WhoreDash extends LitElement {
     h1 {
       font-size: 2rem;
       font-weight: 800;
-      color: var(--pink-600);
+      color: var(--green-600);
       letter-spacing: -0.02em;
     }
 
@@ -88,19 +88,19 @@ export class WhoreDash extends LitElement {
     .store-trigger {
       background: none;
       border: none;
-      border-bottom: 1.5px dotted var(--pink-400);
+      border-bottom: 1.5px dotted var(--green-400);
       font: inherit;
       font-size: inherit;
       font-style: inherit;
-      color: var(--pink-500);
+      color: var(--green-500);
       cursor: pointer;
       padding: 0;
       transition: color 0.15s, border-color 0.15s;
     }
 
     .store-trigger:hover {
-      color: var(--pink-600);
-      border-color: var(--pink-600);
+      color: var(--green-600);
+      border-color: var(--green-600);
     }
 
     .store-edit {
@@ -108,7 +108,7 @@ export class WhoreDash extends LitElement {
       width: 7rem;
       padding: 0.1rem 0.3rem;
       border: none;
-      border-bottom: 2px solid var(--pink-400);
+      border-bottom: 2px solid var(--green-400);
       border-radius: 0;
       background: transparent;
       font: inherit;
@@ -137,7 +137,7 @@ export class WhoreDash extends LitElement {
     }
 
     .store-clear:hover {
-      color: var(--pink-600);
+      color: var(--green-600);
     }
 
     .actions {
@@ -171,7 +171,7 @@ export class WhoreDash extends LitElement {
     }
 
     .forget-btn:hover {
-      color: var(--pink-600);
+      color: var(--green-600);
     }
   `;
 
@@ -367,7 +367,7 @@ export class WhoreDash extends LitElement {
 
   _renderTagline() {
     if (this._editingStore) {
-      return html`Because love is a <input
+      return html`Errands &amp; munchies from <input
         class="store-edit"
         .value=${this._storeInput}
         @input=${e => { this._storeInput = e.target.value; }}
@@ -375,10 +375,10 @@ export class WhoreDash extends LitElement {
         @blur=${this._saveStoreEdit}
         placeholder="store name"
         aria-label="Store name"
-      > run.`;
+      >.`;
     }
     if (this._store) {
-      return html`Because love is a <button
+      return html`Errands &amp; munchies from <button
         class="store-trigger"
         @click=${this._startStoreEdit}
         aria-label="Change store"
@@ -386,19 +386,19 @@ export class WhoreDash extends LitElement {
         class="store-clear"
         @click=${this._clearStore}
         aria-label="Clear store"
-      >&times;</button> run.`;
+      >&times;</button>.`;
     }
-    return html`Because love is a <button
+    return html`Errands &amp; munchies from <button
       class="store-trigger"
       @click=${this._startStoreEdit}
       aria-label="Set store"
-    >grocery</button> run.`;
+    >the store</button>.`;
   }
 
   render() {
     return html`
       <header>
-        <h1>WhoreDash</h1>
+        <h1>Em Dash</h1>
         <p class="tagline">${this._renderTagline()}</p>
       </header>
 
@@ -412,7 +412,7 @@ export class WhoreDash extends LitElement {
       </div>
 
       ${isListEmpty(this._list)
-        ? html`<p class="empty">The list is empty.<br>Your whore is free… for now.</p>`
+        ? html`<p class="empty">The list is empty.<br>Nothing to dash for… yet.</p>`
         : html`<grocery-list
             .listData=${this._list}
             @remove-item=${this._removeItem}
@@ -430,4 +430,4 @@ export class WhoreDash extends LitElement {
   }
 }
 
-customElements.define('whore-dash', WhoreDash);
+customElements.define('em-dash', EmDash);

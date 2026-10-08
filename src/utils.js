@@ -92,7 +92,7 @@ export function topItems(history, n = 9) {
 }
 
 /**
- * Parses and validates a raw `whoredash-history` JSON string from localStorage.
+ * Parses and validates a raw `emdash-history` JSON string from localStorage.
  * Returns a clean {@link History} object, stripping any entries whose value is
  * not a positive number. Returns `{}` on any parse error or unexpected shape.
  *
@@ -165,7 +165,7 @@ export function moveItemToAisle(list, itemId, aisleId) {
 }
 
 /**
- * Parses and migrates a raw `whoredash-list` JSON string from localStorage into
+ * Parses and migrates a raw `emdash-list` JSON string from localStorage into
  * the current {@link GroceryList} schema.
  *
  * Handles two legacy formats:

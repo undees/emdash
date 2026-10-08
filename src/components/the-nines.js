@@ -36,7 +36,7 @@ export class TheNines extends LitElement {
     .trigger {
       background: none;
       border: none;
-      color: var(--pink-500);
+      color: var(--green-500);
       font: inherit;
       font-size: 0.8rem;
       font-weight: 700;
@@ -51,7 +51,7 @@ export class TheNines extends LitElement {
     }
 
     .trigger:hover {
-      color: var(--pink-700);
+      color: var(--green-700);
     }
 
     .grid {
@@ -64,7 +64,7 @@ export class TheNines extends LitElement {
     .cell {
       position: relative;
       border-radius: var(--radius, 0.75rem);
-      border: 1px solid var(--pink-200);
+      border: 1px solid var(--green-200);
       min-height: 2.75rem;
       display: flex;
       align-items: center;
@@ -73,24 +73,24 @@ export class TheNines extends LitElement {
     }
 
     .cell--filled {
-      background: var(--pink-50, #fff0f6);
+      background: var(--green-50, #f1f8f3);
       cursor: pointer;
       transition: background 0.15s, border-color 0.15s;
     }
 
     .cell--filled:hover {
-      background: var(--pink-200);
-      border-color: var(--pink-400);
+      background: var(--green-200);
+      border-color: var(--green-400);
     }
 
     .cell--empty {
       background: transparent;
-      border-color: var(--pink-100, #ffe4ef);
+      border-color: var(--green-100, #e2f1e6);
       opacity: 0.35;
     }
 
     .cell-label {
-      color: var(--pink-700);
+      color: var(--green-700);
       font-size: 0.8rem;
       padding: 0.35rem 1.5rem 0.35rem 0.6rem;
       text-align: center;
@@ -116,7 +116,7 @@ export class TheNines extends LitElement {
       right: 3px;
       background: none;
       border: none;
-      color: var(--pink-300);
+      color: var(--green-300);
       font-size: 0.6rem;
       line-height: 1;
       cursor: pointer;
@@ -126,8 +126,8 @@ export class TheNines extends LitElement {
     }
 
     .cell-remove:hover {
-      color: var(--pink-700);
-      background: var(--pink-200);
+      color: var(--green-700);
+      background: var(--green-200);
     }
   `;
 

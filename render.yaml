@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: whoredash
+    name: emdash
     runtime: static
     buildCommand: bun install && bun run build
     staticPublishPath: ./public

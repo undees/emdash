@@ -35,7 +35,7 @@ export class AddItem extends LitElement {
       flex: 1;
       min-width: 0;
       padding: 0.6rem 0.75rem;
-      border: 2px solid var(--pink-200);
+      border: 2px solid var(--green-200);
       border-right: none;
       border-radius: var(--radius) 0 0 var(--radius);
       font: inherit;
@@ -51,15 +51,15 @@ export class AddItem extends LitElement {
     }
 
     input:focus {
-      border-color: var(--pink-400);
+      border-color: var(--green-400);
     }
 
     .btn-add {
       flex: none;
       padding: 0.6rem 1rem;
-      background: var(--pink-500);
+      background: var(--green-500);
       color: var(--white);
-      border: 2px solid var(--pink-500);
+      border: 2px solid var(--green-500);
       border-radius: 0;
       font: inherit;
       font-size: 0.95rem;
@@ -69,16 +69,16 @@ export class AddItem extends LitElement {
     }
 
     .btn-add:hover {
-      background: var(--pink-600);
-      border-color: var(--pink-600);
+      background: var(--green-600);
+      border-color: var(--green-600);
     }
 
     .btn-aisle {
       flex: none;
       padding: 0.6rem 0.75rem;
-      background: var(--pink-100);
-      color: var(--pink-700);
-      border: 2px solid var(--pink-200);
+      background: var(--green-100);
+      color: var(--green-700);
+      border: 2px solid var(--green-200);
       border-left: none;
       border-radius: 0 var(--radius) var(--radius) 0;
       font: inherit;
@@ -90,7 +90,7 @@ export class AddItem extends LitElement {
     }
 
     .btn-aisle:hover {
-      background: var(--pink-200);
+      background: var(--green-200);
     }
   `;
 

@@ -14,7 +14,7 @@ def _add_item(page: Page, name: str):
 
 
 def _stored(page: Page):
-    return page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    return page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
 
 
 def test_item_lands_in_matching_aisle(page: Page, base_url: str):

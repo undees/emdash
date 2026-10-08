@@ -32,7 +32,7 @@ def test_aisle_persists_to_localstorage(page: Page, base_url: str):
 
     _add_aisle(page, "Dairy")
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored["aisles"][0]["name"] == "Dairy"
     assert stored["aisles"][0]["items"] == []
 
@@ -85,7 +85,7 @@ def test_delete_aisle_moves_items_to_floating(page: Page, base_url: str):
             ]
         }]
     }
-    page.evaluate(f"localStorage.setItem('whoredash-list', '{json.dumps(data)}')")
+    page.evaluate(f"localStorage.setItem('emdash-list', '{json.dumps(data)}')")
     page.reload()
 
     page.locator("grocery-list").locator(".aisle-action-btn").last.click()
@@ -95,7 +95,7 @@ def test_delete_aisle_moves_items_to_floating(page: Page, base_url: str):
     assert "Lettuce" in names
     assert "Apples" in names
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored["aisles"] == []
     assert len(stored["floatingItems"]) == 2
 
@@ -103,12 +103,12 @@ def test_delete_aisle_moves_items_to_floating(page: Page, base_url: str):
 def test_burn_it_all_down_clears_history(page: Page, base_url: str):
     page.goto(base_url)
     page.evaluate("localStorage.clear()")
-    page.evaluate("localStorage.setItem('whoredash-history', JSON.stringify({'Milk': 5, 'Bread': 3}))")
+    page.evaluate("localStorage.setItem('emdash-history', JSON.stringify({'Milk': 5, 'Bread': 3}))")
     page.reload()
 
     _add_aisle(page, "BURN IT ALL DOWN")
 
-    history = page.evaluate("localStorage.getItem('whoredash-history')")
+    history = page.evaluate("localStorage.getItem('emdash-history')")
     assert history is None
 
 

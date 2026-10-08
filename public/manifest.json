@@ -1,11 +1,11 @@
 {
-  "name": "WhoreDash",
-  "short_name": "WhoreDash",
-  "description": "Because love is a grocery run.",
+  "name": "Em Dash",
+  "short_name": "Em Dash",
+  "description": "Errands & munchies, in a dash.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#fdf2f4",
-  "theme_color": "#d4567a",
+  "background_color": "#f1f8f3",
+  "theme_color": "#377d51",
   "icons": [
     {
       "src": "/apple-touch-icon.png",

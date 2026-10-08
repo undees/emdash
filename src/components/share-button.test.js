@@ -5,7 +5,7 @@ import { isListEmpty } from '../utils.js';
 describe('formatShareText', () => {
   test('formats a legacy flat string array', () => {
     const result = formatShareText(['Milk', 'Bread', 'Eggs']);
-    expect(result).toBe('🛒 WhoreDash List\n\n• Milk\n• Bread\n• Eggs');
+    expect(result).toBe('🛒 Em Dash List\n\n• Milk\n• Bread\n• Eggs');
   });
 
   test('formats floating items only', () => {
@@ -13,7 +13,7 @@ describe('formatShareText', () => {
       floatingItems: [{ id: 'a1', name: 'Milk' }, { id: 'a2', name: 'Bread' }],
       aisles: [],
     };
-    expect(formatShareText(data)).toBe('🛒 WhoreDash List\n\n• Milk\n• Bread');
+    expect(formatShareText(data)).toBe('🛒 Em Dash List\n\n• Milk\n• Bread');
   });
 
   test('formats aisles only (no floating items)', () => {
@@ -23,7 +23,7 @@ describe('formatShareText', () => {
         { id: 'b1', name: 'Produce', items: [{ id: 'c1', name: 'Lettuce' }, { id: 'c2', name: 'Apples' }] },
       ],
     };
-    expect(formatShareText(data)).toBe('🛒 WhoreDash List\n\n❧ Produce\n• Lettuce\n• Apples');
+    expect(formatShareText(data)).toBe('🛒 Em Dash List\n\n❧ Produce\n• Lettuce\n• Apples');
   });
 
   test('formats floating items then aisles, separated by blank lines', () => {
@@ -36,13 +36,13 @@ describe('formatShareText', () => {
     };
     const result = formatShareText(data);
     expect(result).toBe(
-      '🛒 WhoreDash List\n\n• Milk\n\n❧ Produce\n• Lettuce\n\n❧ Dairy\n• Butter'
+      '🛒 Em Dash List\n\n• Milk\n\n❧ Produce\n• Lettuce\n\n❧ Dairy\n• Butter'
     );
   });
 
   test('handles empty structured data gracefully', () => {
     const data = { floatingItems: [], aisles: [] };
-    expect(formatShareText(data)).toBe('🛒 WhoreDash List\n\n');
+    expect(formatShareText(data)).toBe('🛒 Em Dash List\n\n');
   });
 
   test('includes store name in header when provided', () => {
@@ -50,7 +50,7 @@ describe('formatShareText', () => {
       floatingItems: [{ id: 'a1', name: 'Milk' }],
       aisles: [],
     };
-    expect(formatShareText(data, 'Farm Boy')).toBe('🛒 WhoreDash List — Farm Boy\n\n• Milk');
+    expect(formatShareText(data, 'Farm Boy')).toBe('🛒 Em Dash List — Farm Boy\n\n• Milk');
   });
 
   test('omits store from header when empty string', () => {
@@ -58,7 +58,7 @@ describe('formatShareText', () => {
       floatingItems: [{ id: 'a1', name: 'Milk' }],
       aisles: [],
     };
-    expect(formatShareText(data, '')).toBe('🛒 WhoreDash List\n\n• Milk');
+    expect(formatShareText(data, '')).toBe('🛒 Em Dash List\n\n• Milk');
   });
 });
 

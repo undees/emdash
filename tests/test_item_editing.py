@@ -99,7 +99,7 @@ def test_remove_while_editing_cancels_edit_and_removes(page: Page, base_url: str
 
     page.locator("grocery-list").locator(".remove-btn").click()
 
-    empty = page.locator("whore-dash").locator(".empty")
+    empty = page.locator("em-dash").locator(".empty")
     expect(empty).to_be_visible()
 
 
@@ -115,5 +115,5 @@ def test_edit_persists_to_localstorage(page: Page, base_url: str):
     edit_input.fill("flux capacitor")
     edit_input.press("Enter")
 
-    stored = page.evaluate("JSON.parse(localStorage.getItem('whoredash-list'))")
+    stored = page.evaluate("JSON.parse(localStorage.getItem('emdash-list'))")
     assert stored["floatingItems"][0]["name"] == "flux capacitor"
